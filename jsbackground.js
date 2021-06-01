@@ -238,6 +238,8 @@ function gameManageEasy()
             victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+highScore.toString();
         else
             victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+moves.toString();
+    
+            victory.innerHTML = victory.innerHTML + "<br><br><input type = 'button' value = 'retry?' onclick = 'reloadPage()'>"
     }
     function winCheck()
     {
@@ -273,9 +275,10 @@ function resetName()
     localStorage.removeItem("name");
     location.reload();
 }
-
-
-
+function reloadPage()
+{
+    location.reload();
+}
 
 
 
@@ -519,6 +522,8 @@ function gameManageHard()
             victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+highScore.toString();
         else
             victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+moves.toString();
+
+        victory.innerHTML = victory.innerHTML + "<br><br><input type = 'button' onclick = 'reloadPage()'>"
     }
     function winCheck()
     {
