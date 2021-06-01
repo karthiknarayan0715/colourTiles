@@ -9,9 +9,9 @@ function homeScreenGeneration()
     div.innerHTML = "";
     greetingText.innerHTML = "";
     if(localName == null)
-        div.innerHTML  = div.innerHTML + "<div id='input_fields'><p><b>Name: </b></p><input type='text' id = 'name_input_field' placeholder='Enter your Name'><br><br><input type = 'button' value='EASY LEVEL' onclick='startGameEasy()'><br><br><input type = 'button' value='HARD LEVEL' onclick='startGameHard()'><br><br><input type = 'button' value='RESET SCORES' onclick='resetHighScore()'><p id='errorText'></p></div>";
+        div.innerHTML  = div.innerHTML + "<div id='input_fields'><p id = 'nameText'><b>NAME: </b></p><input type='text' id = 'name_input_field' placeholder='Enter your Name'><br><br><input type = 'button' value='EASY LEVEL' onclick='startGameEasy()' id = 'button'><br><br><input type = 'button' value='HARD LEVEL' onclick='startGameHard()' id = 'button'><br><br><input type = 'button' value='RESET SCORES' onclick='resetHighScore()' id = 'button'><p id='errorText'></p></div>";
     else
-        div.innerHTML = div.innerHTML + "<div id='input_fields'<p>Welcome, " + localName + "</p><br><br><input type = 'button' value='EASY LEVEL' onclick='startGameEasy()'><br><br><input type = 'button' value='HARD LEVEL' onclick='startGameHard()'><br><br><input type = 'button' value='RESET SCORES' onclick='resetHighScore()'><input type = 'button' value='RESET NAME' onclick='resetName()'><p id='errorText'></p></div>";
+        div.innerHTML = div.innerHTML + "<div id='input_fields'<p id = 'nameText'>Welcome, " + localName + "</p><br><br><input type = 'button' value='EASY LEVEL' onclick='startGameEasy()' id = 'button'><br><br><input type = 'button' value='HARD LEVEL' onclick='startGameHard()' id = 'button'><br><br><input type = 'button' value='RESET SCORES' onclick='resetHighScore()' id = 'button'><br><br><input type = 'button' value='RESET NAME' onclick='resetName()' id = 'button'><p id='errorText'></p></div>";
 }
 homeScreenGeneration();
 //Getting the values
@@ -76,7 +76,7 @@ function startGameEasy()
             }
         }
     }
-    div.innerHTML += "<br><input type = 'button' value = 'BACK' onclick = 'homeScreenGeneration()'>";
+    div.innerHTML += "<br><input type = 'button' value = 'BACK' onclick = 'homeScreenGeneration()' id = 'button'>";
     gameManageEasy();
 }
 
@@ -258,7 +258,7 @@ function gameManageEasy()
         }
             
     
-            victory.innerHTML = victory.innerHTML + "<br><br><input type = 'button' value = 'retry?' onclick = 'reloadPage()'>"
+            victory.innerHTML = victory.innerHTML + "<br><br><input type = 'button' value = 'retry?' onclick = 'reloadPage()' id = 'button'>"
     }
     function winCheck()
     {
@@ -347,7 +347,7 @@ function startGameHard()
             }
         }
     }
-    div.innerHTML += "<br><input type = 'button' value = 'BACK' onclick = 'homeScreenGeneration()'>";
+    div.innerHTML += "<br><input type = 'button' value = 'BACK' onclick = 'homeScreenGeneration()' id = 'button'>";
     gameManageHard();
 }
 function gameManageHard()
@@ -548,7 +548,7 @@ function gameManageHard()
         else
             victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+moves.toString()+" by "+localName;
 
-        victory.innerHTML = victory.innerHTML + "<br><br><input type = 'button' value = 'retry?' onclick = 'reloadPage()'>"
+        victory.innerHTML = victory.innerHTML + "<br><br><input type = 'button' value = 'retry?' onclick = 'reloadPage()' id = 'button'>"
     }
     function winCheck()
     {
@@ -579,6 +579,3 @@ function gameManageHard()
         }    
     }
 }
-
-
-
