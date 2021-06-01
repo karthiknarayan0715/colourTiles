@@ -523,7 +523,7 @@ function gameManageHard()
         else
             victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+moves.toString();
 
-        victory.innerHTML = victory.innerHTML + "<br><br><input type = 'button' onclick = 'reloadPage()'>"
+        victory.innerHTML = victory.innerHTML + "<br><br><input type = 'button' value = 'retry?' onclick = 'reloadPage()'>"
     }
     function winCheck()
     {
