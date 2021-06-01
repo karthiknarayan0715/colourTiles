@@ -1,29 +1,22 @@
 <html>
     <head>
         <title>Colour tiles</title>
-        <style>
-            #tiles
-            {
-                background-color:blue;
-                width: 40px;
-                height: 40px;
-            }
-            .title
-            {
-                text-align: center;
-                background-color: bisque;
-            }
-        </style>
+        <link rel="stylesheet" href="design.css">
+
     </head>
     <body>
-        <h1 class = 'title'>GAME!</h1>
-        <h2>GOAL:</h2>
-        <div id = "goal"></div>
-        <br><br><br>
-        <h2>YOUR PUZZLE:</h2>
+        <audio id = "intro"><source src = "start.wav"/></audio>
+        <audio id = "moves"><source src = "move.wav"/></audio>
+        <h1 class = 'title'>COLOUR TILES!</h1>
+        
+
+        <p1 id = "greeting"></p1>
+        <div id = "victoryArea"></div>
+        <div id = "goal">
+        </div>
+        <br>
         <div id = "gameArea">
         </div>
-        <div id = "victoryArea"></div>
     </body>
-    <script src = "E:\Delta Inductions\Colour Tiles\jsbackground.js"></script>
+    <script src = "jsbackground.js"></script>
 </html>
