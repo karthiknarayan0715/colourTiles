@@ -579,3 +579,6 @@ function gameManageHard()
         }    
     }
 }
+
+
+
