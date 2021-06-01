@@ -1,20 +1,30 @@
 //Generating the scene
 const div = document.querySelector("#gameArea");
 localName = localStorage.getItem("name");
-if(localName == null)
-    div.innerHTML  = div.innerHTML + "<div id='input_fields'><p><b>Name: </b></p><input type='text' id = 'name_input_field' placeholder='Enter your Name'><br><br><input type = 'button' value='EASY LEVEL' onclick='startGameEasy()'><br><br><input type = 'button' value='HARD LEVEL' onclick='startGameHard()'><br><br><input type = 'button' value='RESET SCORES' onclick='resetHighScore()'><p id='errorText'></p></div>";
-else
-    div.innerHTML = div.innerHTML + "<div id='input_fields'<p>Welcome, " + localName + "</p><br><br><input type = 'button' value='EASY LEVEL' onclick='startGameEasy()'><br><br><input type = 'button' value='HARD LEVEL' onclick='startGameHard()'><br><br><input type = 'button' value='RESET SCORES' onclick='resetHighScore()'><input type = 'button' value='RESET NAME' onclick='resetName()'><p id='errorText'></p></div>"
+const goal = document.querySelector("#goal");
+const greetingText = document.querySelector("#greeting");
+function homeScreenGeneration()
+{
+    goal.innerHTML = "";
+    div.innerHTML = "";
+    greetingText.innerHTML = "";
+    if(localName == null)
+        div.innerHTML  = div.innerHTML + "<div id='input_fields'><p><b>Name: </b></p><input type='text' id = 'name_input_field' placeholder='Enter your Name'><br><br><input type = 'button' value='EASY LEVEL' onclick='startGameEasy()'><br><br><input type = 'button' value='HARD LEVEL' onclick='startGameHard()'><br><br><input type = 'button' value='RESET SCORES' onclick='resetHighScore()'><p id='errorText'></p></div>";
+    else
+        div.innerHTML = div.innerHTML + "<div id='input_fields'<p>Welcome, " + localName + "</p><br><br><input type = 'button' value='EASY LEVEL' onclick='startGameEasy()'><br><br><input type = 'button' value='HARD LEVEL' onclick='startGameHard()'><br><br><input type = 'button' value='RESET SCORES' onclick='resetHighScore()'><input type = 'button' value='RESET NAME' onclick='resetName()'><p id='errorText'></p></div>";
+}
+homeScreenGeneration();
 //Getting the values
 empX = Math.floor(Math.random()*5)
 empY = Math.floor(Math.random()*5)
 const colors = ["Red", "Blue", "Cyan","Pink", "Green"];
 emptyCoordinates = "b" + empY.toString() + empX.toString();
-const goal = document.querySelector("#goal");
+
 const moveSound = document.querySelector("#moves");
-const greetingText = document.querySelector("#greeting");
 const inputName = document.querySelector("#name_input_field");
 const errorText = document.querySelector("#errorText");
+
+const buttonArea = document.querySelector("#mobileButtons");
 won = false;
 gamebegan = false;
 moves = 0;
@@ -47,7 +57,6 @@ function startGameEasy()
             div.innerHTML = div.innerHTML + "<button id = 'tiles' class = b" + i.toString() + j.toString() + "></button>";
         div.innerHTML += "<br>";
     }
-    //div.innerHTML = div.innerHTML + "<input type = 'button' onclick = 'esetHighScore()' value = 'Reset score'>";
 //ASSIGNING COLORS
     for(i = 0; i < 5; i++)
     {
@@ -67,6 +76,7 @@ function startGameEasy()
             }
         }
     }
+    div.innerHTML += "<br><input type = 'button' value = 'BACK' onclick = 'homeScreenGeneration()'>";
     gameManageEasy();
 }
 
@@ -317,7 +327,7 @@ function startGameHard()
             div.innerHTML = div.innerHTML + "<button id = 'tiles' class = b" + i.toString() + j.toString() + "></button>";
         div.innerHTML += "<br>";
     }
-    //div.innerHTML = div.innerHTML + "<input type = 'button' onclick = 'esetHighScore()' value = 'Reset score'>";
+
 //ASSIGNING COLORS
     for(i = 0; i < 6; i++)
     {
@@ -337,6 +347,7 @@ function startGameHard()
             }
         }
     }
+    div.innerHTML += "<br><input type = 'button' value = 'BACK' onclick = 'homeScreenGeneration()'>";
     gameManageHard();
 }
 function gameManageHard()
