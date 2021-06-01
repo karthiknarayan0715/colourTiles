@@ -16,3 +16,21 @@
     color: red;
     size: 10px;
 }
+#parent
+{
+    height: 600px;
+    position: relative;
+    width: 1000px;
+}
+.child
+{
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 500px;
+    right: 0;
+    height: 550px;
+    width: 500px;
+    position: absolute;
+    padding: 10px;
+}
