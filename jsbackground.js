@@ -224,20 +224,29 @@ function gameManageEasy()
 
         highScore = localStorage.getItem("highScore");
         if(highScore == null)
+        {
             localStorage.setItem("highScore", moves.toString());
+            localStorage.setItem("highScoreOwner", localName);
+        }
         if(moves<parseInt(highScore))
         {
             localStorage.setItem("highScore", moves.toString());
             highScore = localStorage.getItem("highScore");
+            localStorage.setItem("highScoreOwner",localName);
         }
             
         
         intro.play();
         const victory = document.querySelector("#victoryArea");
         if(highScore!=null)
-            victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+highScore.toString();
+        {
+            victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+highScore.toString() + " by "+localStorage.getItem("highScoreOwner");
+        }            
         else
-            victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+moves.toString();
+        {
+            victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+moves.toString()+" by "+localName;
+        }
+            
     
             victory.innerHTML = victory.innerHTML + "<br><br><input type = 'button' value = 'retry?' onclick = 'reloadPage()'>"
     }
@@ -269,6 +278,7 @@ function resetHighScore()
 {
     localStorage.removeItem("highScore");
     localStorage.removeItem("highScoreHard");
+    localStorage.removeItem("highScoreHardOwner");
 }
 function resetName()
 {
@@ -508,10 +518,14 @@ function gameManageHard()
 
         highScore = localStorage.getItem("highScoreHard");
         if(highScore == null)
+        {
             localStorage.setItem("highScoreHard", moves.toString());
+            localStorage.setItem("highScoreHardOwner", localName);
+        }
         if(moves<parseInt(highScore))
         {
             localStorage.setItem("highScoreHard", moves.toString());
+            localStorage.setItem("highScoreHardOwner", localName);
             highScore = localStorage.getItem("highScoreHard");
         }
             
@@ -519,9 +533,9 @@ function gameManageHard()
         intro.play();
         const victory = document.querySelector("#victoryArea");
         if(highScore!=null)
-            victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+highScore.toString();
+            victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+highScore.toString()+"by"+localStorage.getItem("highScoreHardOwner");
         else
-            victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+moves.toString();
+            victory.innerHTML = "<h1>You WON THE GAME!!!</h1><p1>You used "+moves.toString()+" moves to win<br>HIGH SCORE: "+moves.toString()+" by "+localName;
 
         victory.innerHTML = victory.innerHTML + "<br><br><input type = 'button' value = 'retry?' onclick = 'reloadPage()'>"
     }
